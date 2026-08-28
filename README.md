@@ -233,6 +233,23 @@ Expected:
 ```
 
 ---
+## 🔍 Observability Foundation
+
+The API includes a basic observability foundation:
+
+- Application logging
+- Request correlation IDs
+- `X-Request-ID` propagation
+- Health and readiness endpoints
+
+Each HTTP request receives a correlation ID.
+
+Clients may provide their own:
+
+```bash
+curl \
+  -H "X-Request-ID: portfolio-test-001" \
+  http://127.0.0.1:8000/health
 
 ## 🧪 Testing
 
@@ -292,19 +309,21 @@ specs/
 
 ### Phase 1 — Foundation
 
-* [x] GitHub repository
-* [x] uv-based Python project
-* [x] FastAPI
-* [x] Pydantic Settings
-* [x] Health endpoint
-* [x] Readiness endpoint
-* [x] Testing foundation
-* [x] Ruff
-* [x] MyPy
-* [ ] Structured logging
-* [ ] PostgreSQL
-* [ ] Docker Compose
-* [ ] GitHub Actions
+- [x] GitHub repository
+- [x] uv-based Python project
+- [x] FastAPI
+- [x] Pydantic Settings
+- [x] Health endpoint
+- [x] Readiness endpoint
+- [x] Testing foundation
+- [x] Ruff
+- [x] MyPy
+- [x] Application logging
+- [x] Request correlation IDs
+- [ ] Centralized exception handling
+- [ ] PostgreSQL
+- [ ] Docker Compose
+- [ ] GitHub Actions
 
 ### Phase 2 — RAG Platform
 
