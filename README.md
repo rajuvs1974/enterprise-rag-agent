@@ -320,7 +320,7 @@ specs/
 - [x] MyPy
 - [x] Application logging
 - [x] Request correlation IDs
-- [ ] Centralized exception handling
+- [x] Centralized exception handling
 - [ ] PostgreSQL
 - [ ] Docker Compose
 - [ ] GitHub Actions
