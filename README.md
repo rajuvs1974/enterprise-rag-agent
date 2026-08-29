@@ -275,6 +275,54 @@ All three are intended to become CI quality gates.
 
 ---
 
+## 🗄️ Persistence Foundation
+
+The persistence layer is being designed around PostgreSQL as the system of record for enterprise metadata.
+
+The application uses:
+
+* SQLAlchemy 2.x
+* `asyncpg`
+* Alembic
+* Pydantic Settings
+* Async database sessions
+* Unit of Work transaction boundaries
+
+The architecture separates application/domain logic from database implementation:
+
+```text
+Application
+    ↓
+Repository Interfaces
+    ↓
+Persistence Infrastructure
+    ↓
+SQLAlchemy
+    ↓
+PostgreSQL
+```
+
+Database configuration is provided through:
+
+```text
+DATABASE_URL
+```
+
+This keeps the application independent of the underlying cloud provider.
+
+The same persistence architecture will support:
+
+```text
+Local PostgreSQL
+       ↓
+AWS RDS PostgreSQL
+       ↓
+Azure Database for PostgreSQL
+```
+
+PostgreSQL will remain the **system of record**. Search infrastructure such as OpenSearch will be treated as derived state.
+
+
 ## 📋 Spec-Driven Development
 
 Development follows:
@@ -321,6 +369,9 @@ specs/
 - [x] Application logging
 - [x] Request correlation IDs
 - [x] Centralized exception handling
+- [x] Database configuration
+- [x] SQLAlchemy async engine
+- [x] Database session / Unit of Work
 - [ ] PostgreSQL
 - [ ] Docker Compose
 - [ ] GitHub Actions

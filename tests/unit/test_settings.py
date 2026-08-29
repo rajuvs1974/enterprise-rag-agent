@@ -8,6 +8,7 @@ def test_default_settings() -> None:
     assert settings.environment == "development"
     assert settings.debug is False
 
+
 def test_database_configuration() -> None:
     settings = get_settings()
 
