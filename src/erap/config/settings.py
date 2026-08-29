@@ -11,6 +11,8 @@ class Settings(BaseSettings):
     environment: str = "development"
     debug: bool = False
 
+    database_url: str = "postgresql+asyncpg://postgres:postgres@localhost:5432/erap"
+
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",
